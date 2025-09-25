@@ -20,6 +20,13 @@ const eslintConfig = [
       "next-env.d.ts",
     ],
   },
+  {
+    files: ["**/*.jsx", "**/*.tsx"],
+    rules: {
+      // Allow apostrophes and quotes in text content without forcing HTML entities
+      "react/no-unescaped-entities": "off",
+    },
+  },
 ];
 
 export default eslintConfig;

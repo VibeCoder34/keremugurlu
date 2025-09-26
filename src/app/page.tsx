@@ -304,6 +304,12 @@ export default function Home() {
             >
               Terms of Service
             </a>
+            <a
+              href="/refund-policy"
+              className="text-gray-400 dark:text-gray-600 hover:theme-text-primary transition-colors"
+            >
+              Refund Policy
+            </a>
             <span className="text-gray-400 dark:text-gray-600">
               Built with Next.js & Tailwind
             </span>

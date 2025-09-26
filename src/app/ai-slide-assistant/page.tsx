@@ -391,8 +391,172 @@ export default function AISlideAssistant() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Pricing Section */}
       <section className="py-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold theme-text-primary mb-6">Simple, Transparent Pricing</h2>
+            <p className="text-lg theme-text-secondary max-w-2xl mx-auto">
+              Choose the plan that fits your needs. No hidden fees, no subscriptions.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {/* Basic Plan */}
+            <div className="p-8 theme-bg-secondary rounded-lg border-2 theme-border">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold theme-text-primary mb-2">Basic</h3>
+                <div className="text-4xl font-bold theme-text-primary mb-2">$5</div>
+                <p className="theme-text-secondary">One-time payment</p>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">5-10 slides</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">All themes included</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">PPTX download</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">English & Turkish</span>
+                </li>
+              </ul>
+              <a
+                href="https://fynta.io/slides"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex justify-center items-center px-6 py-3 theme-border rounded-lg font-medium theme-button theme-hover transition-colors"
+              >
+                Get Started
+              </a>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="p-8 theme-bg-secondary rounded-lg border-2 border-blue-500 relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
+              </div>
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold theme-text-primary mb-2">Pro</h3>
+                <div className="text-4xl font-bold theme-text-primary mb-2">$20</div>
+                <p className="theme-text-secondary">One-time payment</p>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">10-15 slides</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">All themes included</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">PPTX download</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">English & Turkish</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">Priority support</span>
+                </li>
+              </ul>
+              <a
+                href="https://fynta.io/slides"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex justify-center items-center px-6 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
+              >
+                Get Started
+              </a>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="p-8 theme-bg-secondary rounded-lg border-2 theme-border">
+              <div className="text-center mb-8">
+                <h3 className="text-2xl font-bold theme-text-primary mb-2">Enterprise</h3>
+                <div className="text-4xl font-bold theme-text-primary mb-2">$50</div>
+                <p className="theme-text-secondary">One-time payment</p>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">15-20 slides</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">All themes included</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">PPTX download</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">English & Turkish</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">Priority support</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span className="theme-text-primary">Custom branding</span>
+                </li>
+              </ul>
+              <a
+                href="https://fynta.io/slides"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex justify-center items-center px-6 py-3 theme-border rounded-lg font-medium theme-button theme-hover transition-colors"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 theme-bg-secondary">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold theme-text-primary mb-6">Ready to Create Amazing Presentations?</h2>
           <p className="text-lg theme-text-secondary mb-8">
@@ -451,6 +615,12 @@ export default function AISlideAssistant() {
                 className="hover:theme-text-primary transition-colors"
               >
                 Contact
+              </Link>
+              <Link
+                href="/refund-policy"
+                className="hover:theme-text-primary transition-colors"
+              >
+                Refund Policy
               </Link>
             </div>
           </div>

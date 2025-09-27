@@ -617,6 +617,18 @@ export default function AISlideAssistant() {
                 Contact
               </Link>
               <Link
+                href="/terms"
+                className="hover:theme-text-primary transition-colors"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/privacy"
+                className="hover:theme-text-primary transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
                 href="/refund-policy"
                 className="hover:theme-text-primary transition-colors"
               >

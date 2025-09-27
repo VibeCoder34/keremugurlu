@@ -97,6 +97,19 @@ export default function TermsOfService() {
                 Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
               </p>
               
+              <h2 className="text-2xl font-semibold theme-text-primary mb-4">Company Information</h2>
+              <p>
+                These Terms of Service are provided by Kerem Uğurlu, operating as a sole proprietor under the business name "Kerem Uğurlu" (the "Company", "we", "our", or "us").
+              </p>
+              <div className="mt-4 p-4 theme-bg-secondary rounded-lg">
+                <p><strong>Legal Name:</strong> Kerem Uğurlu</p>
+                <p><strong>Business Type:</strong> Sole Proprietor</p>
+                <p><strong>Website:</strong> keremugurlu.com</p>
+                <p><strong>Contact Email:</strong> kerem@keremugurlu.com</p>
+              </div>
+            </section>
+
+            <section>
               <h2 className="text-2xl font-semibold theme-text-primary mb-4">Agreement to Terms</h2>
               <p>
                 By accessing and using keremugurlu.com and related services (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access the Service.
@@ -212,6 +225,18 @@ export default function TermsOfService() {
                 className="hover:theme-text-primary transition-colors"
               >
                 Contact
+              </Link>
+              <Link
+                href="/privacy"
+                className="hover:theme-text-primary transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/refund-policy"
+                className="hover:theme-text-primary transition-colors"
+              >
+                Refund Policy
               </Link>
             </div>
           </div>

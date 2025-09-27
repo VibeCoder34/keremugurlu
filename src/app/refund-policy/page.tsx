@@ -101,6 +101,19 @@ export default function RefundPolicy() {
           <div className="prose prose-lg max-w-none">
             <div className="space-y-8">
               <section>
+                <h2 className="text-2xl font-bold theme-text-primary mb-4">Company Information</h2>
+                <p className="theme-text-secondary mb-4">
+                  This Refund Policy is provided by Kerem Uğurlu, operating as a sole proprietor under the business name "Kerem Uğurlu" (the "Company", "we", "our", or "us").
+                </p>
+                <div className="mt-4 p-4 theme-bg-secondary rounded-lg">
+                  <p><strong>Legal Name:</strong> Kerem Uğurlu</p>
+                  <p><strong>Business Type:</strong> Sole Proprietor</p>
+                  <p><strong>Website:</strong> keremugurlu.com</p>
+                  <p><strong>Contact Email:</strong> kerem@keremugurlu.com</p>
+                </div>
+              </section>
+
+              <section>
                 <h2 className="text-2xl font-bold theme-text-primary mb-4">Our Refund Policy</h2>
                 <p className="theme-text-secondary mb-4">
                   We want you to be completely satisfied with your AI Slide Assistant purchase. 
@@ -223,6 +236,18 @@ export default function RefundPolicy() {
                 className="hover:theme-text-primary transition-colors"
               >
                 Contact
+              </Link>
+              <Link
+                href="/terms"
+                className="hover:theme-text-primary transition-colors"
+              >
+                Terms of Service
+              </Link>
+              <Link
+                href="/privacy"
+                className="hover:theme-text-primary transition-colors"
+              >
+                Privacy Policy
               </Link>
               <Link
                 href="/ai-slide-assistant"

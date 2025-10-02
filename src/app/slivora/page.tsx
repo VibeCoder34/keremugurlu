@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 // Theme toggle function using CSS variables
 const toggleTheme = () => {
@@ -82,12 +83,12 @@ export default function SlivoraPage() {
       {/* Header */}
       <header className="py-8">
         <div className="max-w-3xl mx-auto px-6 flex justify-between items-center">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center text-sm theme-text-secondary hover:theme-text-primary transition-colors"
           >
             ← Back to home
-          </a>
+          </Link>
           <DarkModeToggle />
         </div>
       </header>
@@ -163,12 +164,12 @@ export default function SlivoraPage() {
 
           {/* Back to Projects */}
           <div className="text-center pt-8">
-            <a
+            <Link
               href="/"
               className="inline-flex items-center text-sm theme-text-secondary hover:theme-text-primary transition-colors"
             >
               ← View all projects
-            </a>
+            </Link>
           </div>
         </div>
       </div>

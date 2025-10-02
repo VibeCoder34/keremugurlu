@@ -32,7 +32,7 @@ const profile = {
     linkedin: "https://www.linkedin.com/in/keremugurlu/"
   },
   projects: [
-    { name: "AI Slide Assistant", tag: "Outline → PPTX in minutes", href: "/ai-slide-assistant", mrr: "" },
+    { name: "Slivora", tag: "Outline → PPTX in minutes", href: "/slivora", mrr: "" },
   ]
 };
 

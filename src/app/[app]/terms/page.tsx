@@ -87,10 +87,10 @@ export default async function AppTermsPage({ params }: PageProps) {
             <p className="text-sm text-neutral-500 mb-4">
               If you have any questions about these Terms, you can reach us at{" "}
               <a
-                href="mailto:support@keremugurlu.com"
+                href="mailto:kerem@keremugurlu.com"
                 className="underline underline-offset-2"
               >
-                support@keremugurlu.com
+                kerem@keremugurlu.com
               </a>
               .
             </p>

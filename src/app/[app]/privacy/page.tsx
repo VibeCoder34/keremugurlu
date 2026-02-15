@@ -88,10 +88,10 @@ export default async function AppPrivacyPage({ params }: PageProps) {
               If you have any questions about this Privacy Policy, you can reach
               us at{" "}
               <a
-                href="mailto:support@keremugurlu.com"
+                href="mailto:kerem@keremugurlu.com"
                 className="underline underline-offset-2"
               >
-                support@keremugurlu.com
+                kerem@keremugurlu.com
               </a>
               .
             </p>
@@ -260,10 +260,10 @@ export default async function AppPrivacyPage({ params }: PageProps) {
                   <p className="mt-2">
                     Email:{" "}
                     <a
-                      href="mailto:support@keremugurlu.com"
+                      href="mailto:kerem@keremugurlu.com"
                       className="underline underline-offset-2"
                     >
-                      support@keremugurlu.com
+                      kerem@keremugurlu.com
                     </a>
                   </p>
                 </section>
@@ -382,10 +382,10 @@ export default async function AppPrivacyPage({ params }: PageProps) {
                   <p className="mt-2">
                     Email:{" "}
                     <a
-                      href="mailto:support@keremugurlu.com"
+                      href="mailto:kerem@keremugurlu.com"
                       className="underline underline-offset-2"
                     >
-                      support@keremugurlu.com
+                      kerem@keremugurlu.com
                     </a>
                   </p>
                 </section>

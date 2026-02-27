@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const APP_PRIVACY_CONFIG = {
@@ -78,6 +79,16 @@ export default async function AppPrivacyPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-white text-neutral-900">
+      <header className="py-8">
+        <div className="mx-auto w-full max-w-3xl px-6">
+          <Link
+            href={`/${app}`}
+            className="inline-flex items-center text-sm text-neutral-500 hover:text-neutral-900 transition-colors"
+          >
+            ← Back to {config.name}
+          </Link>
+        </div>
+      </header>
       <main className="px-6 py-16">
         <article className="mx-auto w-full max-w-3xl">
           <header className="mb-10">

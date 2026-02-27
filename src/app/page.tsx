@@ -34,6 +34,7 @@ const profile = {
   projects: [
     { name: "Wordimo", tag: "AI-powered English vocabulary learning app.", href: "/wordimo", mrr: "" },
     { name: "Affirm", tag: "A calm AI companion for quiet reflection.", href: "/affirm", mrr: "" },
+    { name: "PinTok", tag: "Turn social media inspiration into a personal travel map.", href: "/pintok", mrr: "" },
   ]
 };
 

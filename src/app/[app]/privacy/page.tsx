@@ -16,6 +16,13 @@ const APP_PRIVACY_CONFIG = {
       "Privacy Policy for Wordimo, an AI-powered English vocabulary learning app.",
     path: "/wordimo/privacy",
   },
+  pintok: {
+    name: "PinTok",
+    title: "PinTok — Privacy Policy",
+    description:
+      "Privacy Policy for PinTok, an AI-powered personal travel assistant that turns social media inspiration into a private map.",
+    path: "/pintok/privacy",
+  },
 } as const;
 
 type AppKey = keyof typeof APP_PRIVACY_CONFIG;
@@ -66,6 +73,8 @@ export default async function AppPrivacyPage({ params }: PageProps) {
   }
 
   const isAffirm = key === "affirm";
+  const isWordimo = key === "wordimo";
+  const isPinTok = key === "pintok";
 
   return (
     <div className="min-h-screen bg-white text-neutral-900">
@@ -79,7 +88,7 @@ export default async function AppPrivacyPage({ params }: PageProps) {
               Privacy Policy
             </h1>
             <p className="text-sm text-neutral-500">
-              Last updated: February 2026
+              Last updated: February 27, 2026
             </p>
           </header>
 
@@ -98,7 +107,7 @@ export default async function AppPrivacyPage({ params }: PageProps) {
           </section>
 
           <div className="space-y-8 text-base leading-relaxed">
-            {isAffirm ? (
+            {isAffirm && (
               <>
                 <section>
                   <p>
@@ -276,7 +285,9 @@ export default async function AppPrivacyPage({ params }: PageProps) {
                   </p>
                 </section>
               </>
-            ) : (
+            )}
+
+            {isWordimo && (
               <>
                 <section>
                   <p>
@@ -393,6 +404,133 @@ export default async function AppPrivacyPage({ params }: PageProps) {
                 <section>
                   <h2 className="text-xl font-semibold mb-3">7. Changes</h2>
                   <p>We may update this policy periodically.</p>
+                </section>
+              </>
+            )}
+
+            {isPinTok && (
+              <>
+                <section>
+                  <p className="mb-4">
+                    PinTok (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)
+                    is committed to protecting your privacy. This Privacy Policy
+                    explains how we collect, use, and safeguard your information
+                    when you use our mobile application. PinTok is designed as a
+                    personal productivity tool and does not function as a social
+                    media platform.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    1. Information We Collect
+                  </h2>
+                  <p className="mb-2">
+                    To provide our AI-powered travel services, we collect the
+                    following:
+                  </p>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>
+                      <span className="font-semibold">Account Information:</span>{" "}
+                      Email and profile details (name and selected avatar)
+                      stored securely via Supabase.
+                    </li>
+                    <li>
+                      <span className="font-semibold">User Content:</span> Social
+                      media links (Instagram/TikTok) and images/screenshots you
+                      upload for analysis.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Location Data:</span>{" "}
+                      Geographical coordinates (latitude and longitude) of the
+                      places you save, derived from our analysis services.
+                    </li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    2. Third-Party Services &amp; Data Processing
+                  </h2>
+                  <p className="mb-2">
+                    We utilize industry-leading partners to transform your links
+                    into pins. Your data is shared with these services only for
+                    processing purposes:
+                  </p>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>
+                      <span className="font-semibold">Apify:</span> Used to
+                      scrape and extract text metadata from the social media
+                      links you provide.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Google Gemini (AI):</span>{" "}
+                      Used to analyze text and descriptions to identify specific
+                      venues and cities.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Google Places API:</span>{" "}
+                      Used to retrieve professional photos, addresses, and
+                      coordinates for your discovered locations.
+                    </li>
+                    <li>
+                      <span className="font-semibold">Supabase:</span> Acts as
+                      our primary backend provider for authentication and data
+                      storage.
+                    </li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    3. Data Retention and Deletion
+                  </h2>
+                  <p className="mb-2">
+                    Your data (pins, journeys, and profile settings) is stored
+                    as long as your account is active.
+                  </p>
+                  <p className="mb-2">
+                    <span className="font-semibold">Right to Delete:</span> You
+                    can delete your entire account and all associated data
+                    (including pins and images) at any time through the Settings
+                    menu in the app. Once initiated, this process is permanent
+                    and your data is removed from our Supabase database.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">4. Security</h2>
+                  <p>
+                    We implement robust security measures provided by Supabase to
+                    protect your information. However, no method of transmission
+                    over the internet is 100% secure, and we cannot guarantee
+                    absolute security.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    5. Children&apos;s Privacy
+                  </h2>
+                  <p>
+                    PinTok does not knowingly collect data from children under
+                    the age of 13.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">6. Contact Us</h2>
+                  <p>
+                    If you have questions about this Privacy Policy, please
+                    contact us at:{" "}
+                    <a
+                      href="mailto:kerem@keremugurlu.com"
+                      className="underline underline-offset-2"
+                    >
+                      kerem@keremugurlu.com
+                    </a>
+                    .
+                  </p>
                 </section>
               </>
             )}

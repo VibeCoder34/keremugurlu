@@ -16,6 +16,13 @@ const APP_TERMS_CONFIG = {
       "Terms of Use for Wordimo, an AI-assisted English vocabulary learning app.",
     path: "/wordimo/terms",
   },
+  pintok: {
+    name: "PinTok",
+    title: "PinTok — Terms of Use",
+    description:
+      "Terms of Use for PinTok, an AI-powered personal travel assistant that turns social media inspiration into a private map.",
+    path: "/pintok/terms",
+  },
 } as const;
 
 type AppKey = keyof typeof APP_TERMS_CONFIG;
@@ -66,6 +73,8 @@ export default async function AppTermsPage({ params }: PageProps) {
   }
 
   const isAffirm = key === "affirm";
+  const isWordimo = key === "wordimo";
+  const isPinTok = key === "pintok";
 
   return (
     <div className="min-h-screen bg-white text-neutral-900">
@@ -79,7 +88,7 @@ export default async function AppTermsPage({ params }: PageProps) {
               Terms of Use
             </h1>
             <p className="text-sm text-neutral-500">
-              Last updated: February 2026
+              Last updated: February 27, 2026
             </p>
           </header>
 
@@ -97,7 +106,7 @@ export default async function AppTermsPage({ params }: PageProps) {
           </section>
 
           <div className="space-y-8 text-base leading-relaxed">
-            {isAffirm ? (
+            {isAffirm && (
               <>
                 <section>
                   <p>
@@ -183,7 +192,9 @@ export default async function AppTermsPage({ params }: PageProps) {
                   </p>
                 </section>
               </>
-            ) : (
+            )}
+
+            {isWordimo && (
               <>
                 <section>
                   <p>
@@ -257,6 +268,168 @@ export default async function AppTermsPage({ params }: PageProps) {
                   <p>
                     Applicable international consumer protection principles
                     apply.
+                  </p>
+                </section>
+              </>
+            )}
+
+            {isPinTok && (
+              <>
+                <section>
+                  <p>
+                    Welcome to PinTok. By accessing or using our mobile
+                    application, you agree to be bound by these Terms of Use
+                    (&quot;Terms&quot;). Please read them carefully.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    1. Description of Service
+                  </h2>
+                  <p>
+                    PinTok is a personal productivity tool that allows users to
+                    organize travel inspirations. It uses Artificial Intelligence
+                    and third-party scraping tools to extract location data from
+                    social media links and images provided by the user. PinTok
+                    is intended for personal, non-commercial use only and is not
+                    a social networking service.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    2. Eligibility and Accounts
+                  </h2>
+                  <p className="mb-2">
+                    You must be at least 13 years old to use PinTok.
+                  </p>
+                  <p className="mb-2">
+                    You are responsible for maintaining the confidentiality of
+                    your account credentials provided via Supabase.
+                  </p>
+                  <p>
+                    You agree to provide accurate information and keep it
+                    updated.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    3. Subscriptions and AI Quota (&quot;AI Fuel&quot;)
+                  </h2>
+                  <p className="mb-2">
+                    PinTok operates on a quota-based system for AI analysis
+                    (&quot;AI Fuel&quot;).
+                  </p>
+                  <ul className="list-disc pl-5 space-y-1 mb-2">
+                    <li>
+                      Free users are subject to monthly limits on link and photo
+                      analysis.
+                    </li>
+                    <li>
+                      Premium (&quot;Explorer&quot;) subscriptions may offer
+                      increased or unlimited quotas. Fees are non-refundable
+                      unless required by law.
+                    </li>
+                    <li>
+                      We reserve the right to modify quota limits to ensure
+                      system stability and fair usage.
+                    </li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    4. User Conduct and Restrictions
+                  </h2>
+                  <p className="mb-2">You agree not to:</p>
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>
+                      Use PinTok to process illegal, harmful, or copyrighted
+                      content that you do not have the right to access.
+                    </li>
+                    <li>
+                      Attempt to reverse-engineer PinTok or bypass our API
+                      security measures.
+                    </li>
+                    <li>
+                      Use automated bots to flood our AI analysis services.
+                    </li>
+                    <li>
+                      Misuse the integration with third-party platforms
+                      (Instagram, TikTok, Google) in any way that violates their
+                      respective terms.
+                    </li>
+                  </ul>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    5. Third-Party Content and AI Accuracy
+                  </h2>
+                  <p className="mb-2">
+                    PinTok processes content from third-party platforms
+                    (Instagram/TikTok). We do not own this content and are not
+                    responsible for its accuracy.
+                  </p>
+                  <p>
+                    AI-generated results (via Gemini) and mapping data (via
+                    Google Places) are provided &quot;as-is&quot;. PinTok does
+                    not guarantee 100% accuracy in location identification or
+                    venue details.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    6. Intellectual Property
+                  </h2>
+                  <p className="mb-2">
+                    The PinTok brand, logo, and software architecture are the
+                    exclusive property of PinTok.
+                  </p>
+                  <p>
+                    Users retain rights to the personal collection of pins they
+                    create, but understand that the metadata and photos are
+                    retrieved from public third-party sources.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">7. Termination</h2>
+                  <p className="mb-2">
+                    We reserve the right to suspend or terminate your account if
+                    you violate these Terms.
+                  </p>
+                  <p>
+                    You may delete your account and all associated data at any
+                    time via the Settings menu.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">
+                    8. Limitation of Liability
+                  </h2>
+                  <p>
+                    PinTok shall not be liable for any indirect, incidental, or
+                    consequential damages resulting from your use of the service
+                    or the inaccuracy of AI-generated travel data.
+                  </p>
+                </section>
+
+                <section>
+                  <h2 className="text-xl font-semibold mb-3">9. Contact</h2>
+                  <p>
+                    For questions regarding these Terms, please contact:{" "}
+                    <a
+                      href="mailto:kerem@keremugurlu.com"
+                      className="underline underline-offset-2"
+                    >
+                      kerem@keremugurlu.com
+                    </a>
+                    .
                   </p>
                 </section>
               </>

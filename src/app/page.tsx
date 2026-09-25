@@ -141,7 +141,7 @@ export default function Home() {
   return (
     <div className="min-h-screen theme-bg-primary">
       {/* Header */}
-      <header className="py-8">
+      <header className="py-8 fade-in-down">
         <div className="max-w-3xl mx-auto px-6 flex justify-end">
           <DarkModeToggle />
         </div>

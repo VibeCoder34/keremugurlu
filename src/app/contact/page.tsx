@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 // Theme toggle function using CSS variables
@@ -68,13 +68,43 @@ const DarkModeToggle = () => {
   );
 };
 
+// Reveal-on-scroll wrapper using IntersectionObserver
+const Reveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}>
+      {children}
+    </div>
+  );
+};
+
 export default function Contact() {
   const currentYear = new Date().getFullYear();
 
   return (
     <div className="min-h-screen theme-bg-primary">
       {/* Header */}
-      <header className="py-8">
+      <header className="py-8 fade-in-down">
         <div className="max-w-4xl mx-auto px-6 flex justify-between items-center">
           <Link 
             href="/" 
@@ -88,15 +118,16 @@ export default function Contact() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-6 pb-16">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <h1 className="text-4xl font-bold theme-text-primary mb-6">Contact</h1>
           <p className="text-xl theme-text-secondary max-w-2xl mx-auto">
             Have a question or suggestion? You can reach me using the details below.
           </p>
-        </div>
+        </Reveal>
 
         <div className="max-w-2xl mx-auto space-y-10">
           {/* Contact Information */}
+          <Reveal>
           <div>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Contact Information</h2>
             
@@ -145,7 +176,11 @@ export default function Contact() {
             </div>
           </div>
 
+          </div>
+          </Reveal>
+
           {/* Social links */}
+          <Reveal>
           <div>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Connect with me</h2>
             <div className="flex space-x-4">
@@ -153,7 +188,7 @@ export default function Contact() {
                 href="https://x.com/keremugurlu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 theme-bg-secondary rounded-lg flex items-center justify-center hover:theme-bg-tertiary transition-colors"
+                className="w-12 h-12 theme-bg-secondary rounded-lg flex items-center justify-center hover:theme-bg-tertiary transition-colors hover-grow"
                 aria-label="X (Twitter)"
               >
                 <svg className="w-6 h-6 theme-text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -165,7 +200,7 @@ export default function Contact() {
                 href="https://github.com/keremugurlu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 theme-bg-secondary rounded-lg flex items-center justify-center hover:theme-bg-tertiary transition-colors"
+                className="w-12 h-12 theme-bg-secondary rounded-lg flex items-center justify-center hover:theme-bg-tertiary transition-colors hover-grow"
                 aria-label="GitHub"
               >
                 <svg className="w-6 h-6 theme-text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -177,7 +212,7 @@ export default function Contact() {
                 href="https://www.linkedin.com/in/keremugurlu/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 theme-bg-secondary rounded-lg flex items-center justify-center hover:theme-bg-tertiary transition-colors"
+                className="w-12 h-12 theme-bg-secondary rounded-lg flex items-center justify-center hover:theme-bg-tertiary transition-colors hover-grow"
                 aria-label="LinkedIn"
               >
                 <svg className="w-6 h-6 theme-text-primary" fill="currentColor" viewBox="0 0 24 24">
@@ -186,6 +221,7 @@ export default function Contact() {
               </a>
             </div>
           </div>
+          </Reveal>
         </div>
 
       </main>

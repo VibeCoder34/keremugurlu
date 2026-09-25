@@ -180,6 +180,7 @@ export default function Contact() {
           </Reveal>
 
           {/* Social links */}
+
           <Reveal>
           <div>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Connect with me</h2>

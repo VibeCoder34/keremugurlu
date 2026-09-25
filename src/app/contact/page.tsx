@@ -175,8 +175,6 @@ export default function Contact() {
               </div>
             </div>
           </div>
-
-          </div>
           </Reveal>
 
           {/* Social links */}

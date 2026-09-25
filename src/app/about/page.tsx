@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 // Theme toggle function using CSS variables
@@ -68,13 +68,43 @@ const DarkModeToggle = () => {
   );
 };
 
+// Reveal-on-scroll wrapper using IntersectionObserver
+const Reveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}>
+      {children}
+    </div>
+  );
+};
+
 export default function About() {
   const currentYear = new Date().getFullYear();
 
   return (
     <div className="min-h-screen theme-bg-primary">
       {/* Header */}
-      <header className="py-8">
+      <header className="py-8 fade-in-down">
         <div className="max-w-4xl mx-auto px-6 flex justify-between items-center">
           <Link 
             href="/" 
@@ -88,15 +118,16 @@ export default function About() {
 
       {/* Main Content */}
       <main className="max-w-4xl mx-auto px-6 pb-16">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <h1 className="text-4xl font-bold theme-text-primary mb-6">About Me</h1>
           <p className="text-xl theme-text-secondary max-w-2xl mx-auto">
             Building tiny internet businesses, one micro-SaaS at a time.
           </p>
-        </div>
+        </Reveal>
 
         <div className="space-y-12">
           {/* Introduction */}
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Who I Am</h2>
             <div className="prose prose-lg max-w-none theme-text-secondary">
@@ -111,11 +142,14 @@ export default function About() {
             </div>
           </section>
 
+          </Reveal>
+
           {/* What I Do */}
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">What I Do</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="p-6 theme-bg-secondary rounded-lg">
+              <div className="p-6 theme-bg-secondary rounded-lg hover-lift">
                 <div className="w-12 h-12 theme-bg-primary rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -128,7 +162,7 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="p-6 theme-bg-secondary rounded-lg">
+              <div className="p-6 theme-bg-secondary rounded-lg hover-lift">
                 <div className="w-12 h-12 theme-bg-primary rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -141,7 +175,7 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="p-6 theme-bg-secondary rounded-lg">
+              <div className="p-6 theme-bg-secondary rounded-lg hover-lift">
                 <div className="w-12 h-12 theme-bg-primary rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -154,7 +188,7 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="p-6 theme-bg-secondary rounded-lg">
+              <div className="p-6 theme-bg-secondary rounded-lg hover-lift">
                 <div className="w-12 h-12 theme-bg-primary rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-6 h-6 theme-text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -169,7 +203,10 @@ export default function About() {
             </div>
           </section>
 
+          </Reveal>
+
           {/* My Philosophy */}
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">My Philosophy</h2>
             <div className="prose prose-lg max-w-none theme-text-secondary">
@@ -188,7 +225,10 @@ export default function About() {
             </div>
           </section>
 
+          </Reveal>
+
           {/* Current Focus */}
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Current Focus</h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -229,26 +269,31 @@ export default function About() {
             </div>
           </section>
 
+          </Reveal>
+
           {/* Fun Facts */}
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Fun Facts</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center p-6 theme-bg-secondary rounded-lg">
+              <div className="text-center p-6 theme-bg-secondary rounded-lg hover-lift">
                 <div className="text-3xl font-bold theme-text-primary mb-2">24/7</div>
                 <p className="theme-text-secondary">Always thinking about the next idea</p>
               </div>
-              <div className="text-center p-6 theme-bg-secondary rounded-lg">
+              <div className="text-center p-6 theme-bg-secondary rounded-lg hover-lift">
                 <div className="text-3xl font-bold theme-text-primary mb-2">100%</div>
                 <p className="theme-text-secondary">Remote-first approach</p>
               </div>
-              <div className="text-center p-6 theme-bg-secondary rounded-lg">
+              <div className="text-center p-6 theme-bg-secondary rounded-lg hover-lift">
                 <div className="text-3xl font-bold theme-text-primary mb-2">∞</div>
                 <p className="theme-text-secondary">Coffee consumption</p>
               </div>
             </div>
           </section>
+          </Reveal>
 
           {/* Call to Action */}
+          <Reveal>
           <section className="text-center p-8 theme-bg-secondary rounded-lg">
             <h2 className="text-2xl font-semibold theme-text-primary mb-4">Let's Connect</h2>
             <p className="text-lg theme-text-secondary mb-6">
@@ -258,18 +303,19 @@ export default function About() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors hover-lift"
               >
                 Get in Touch
               </Link>
               <a
                 href="mailto:kerem@keremugurlu.com?subject=Subscribe"
-                className="inline-flex items-center px-6 py-3 theme-border rounded-lg font-medium theme-button theme-hover transition-colors"
+                className="inline-flex items-center px-6 py-3 theme-border rounded-lg font-medium theme-button theme-hover transition-colors hover-lift"
               >
                 Subscribe to Updates
               </a>
             </div>
           </section>
+          </Reveal>
         </div>
       </main>
 

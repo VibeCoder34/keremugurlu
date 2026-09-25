@@ -68,6 +68,83 @@ button:focus-visible {
   height: 0.875rem;
   margin-left: 0.25rem;
   opacity: 0.6;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Scroll-reveal entrance animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Subtle lift + shadow on interactive cards */
+.hover-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.25);
+}
+
+.hover-lift:hover .external-link {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+/* Gentle grow for icon links */
+.hover-grow {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.15);
+}
+
+/* Header entrance fade */
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fade-in-down {
+  animation: fade-in-down 0.6s ease both;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hover-lift:hover,
+  .hover-grow:hover,
+  .hover-lift:hover .external-link {
+    transform: none;
+  }
+
+  .fade-in-down {
+    animation: none;
+  }
 }
 
 /* Theme-specific utility classes */

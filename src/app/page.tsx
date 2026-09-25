@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // Theme toggle function using CSS variables
 const toggleTheme = () => {
@@ -96,11 +96,41 @@ const DarkModeToggle = () => {
   );
 };
 
+// Reveal-on-scroll wrapper using IntersectionObserver
+const Reveal = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`reveal ${visible ? "reveal-visible" : ""} ${className}`}>
+      {children}
+    </div>
+  );
+};
+
 // Section component
 const Section = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <section className={`py-12 ${className}`}>
     <div className="max-w-3xl mx-auto px-6">
-      {children}
+      <Reveal>{children}</Reveal>
     </div>
   </section>
 );
@@ -111,7 +141,7 @@ export default function Home() {
   return (
     <div className="min-h-screen theme-bg-primary">
       {/* Header */}
-      <header className="py-8">
+      <header className="py-8 fade-in-down">
         <div className="max-w-3xl mx-auto px-6 flex justify-end">
           <DarkModeToggle />
         </div>
@@ -141,7 +171,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <a
               href={`mailto:${profile.email}?subject=Subscribe`}
-              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors hover-lift"
             >
               Subscribe
             </a>
@@ -151,7 +181,7 @@ export default function Home() {
                 href={profile.socials.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="theme-text-secondary hover:theme-text-primary transition-colors"
+                className="theme-text-secondary hover:theme-text-primary transition-colors hover-grow"
                 aria-label="X (Twitter)"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -163,7 +193,7 @@ export default function Home() {
                 href={profile.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="theme-text-secondary hover:theme-text-primary transition-colors"
+                className="theme-text-secondary hover:theme-text-primary transition-colors hover-grow"
                 aria-label="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -175,7 +205,7 @@ export default function Home() {
                 href={profile.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="theme-text-secondary hover:theme-text-primary transition-colors"
+                className="theme-text-secondary hover:theme-text-primary transition-colors hover-grow"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -208,7 +238,7 @@ export default function Home() {
                 href={project.href}
                 target={project.href.startsWith('http') ? '_blank' : '_self'}
                 rel={project.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="project-card block p-6 theme-border rounded-lg hover:border-gray-300 transition-all"
+                className="project-card block p-6 theme-border rounded-lg hover:border-gray-300 transition-all hover-lift"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
@@ -240,7 +270,7 @@ export default function Home() {
           </p>
           <a
             href={`mailto:${profile.email}?subject=Subscribe`}
-            className="inline-flex items-center px-6 py-3 theme-border rounded-lg font-medium theme-button theme-hover transition-colors"
+            className="inline-flex items-center px-6 py-3 theme-border rounded-lg font-medium theme-button theme-hover transition-colors hover-lift"
           >
             Subscribe to updates
           </a>

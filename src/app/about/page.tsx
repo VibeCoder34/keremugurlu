@@ -127,7 +127,7 @@ export default function About() {
 
         <div className="space-y-12">
           {/* Introduction */}
-          <Reveal as-section>
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Who I Am</h2>
             <div className="prose prose-lg max-w-none theme-text-secondary">
@@ -145,7 +145,7 @@ export default function About() {
           </Reveal>
 
           {/* What I Do */}
-          <Reveal as-section>
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">What I Do</h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -206,7 +206,7 @@ export default function About() {
           </Reveal>
 
           {/* My Philosophy */}
-          <Reveal as-section>
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">My Philosophy</h2>
             <div className="prose prose-lg max-w-none theme-text-secondary">
@@ -228,7 +228,7 @@ export default function About() {
           </Reveal>
 
           {/* Current Focus */}
-          <Reveal as-section>
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Current Focus</h2>
             <div className="grid md:grid-cols-2 gap-8">
@@ -272,7 +272,7 @@ export default function About() {
           </Reveal>
 
           {/* Fun Facts */}
-          <Reveal as-section>
+          <Reveal>
           <section>
             <h2 className="text-2xl font-semibold theme-text-primary mb-6">Fun Facts</h2>
             <div className="grid md:grid-cols-3 gap-6">
@@ -293,7 +293,7 @@ export default function About() {
           </Reveal>
 
           {/* Call to Action */}
-          <Reveal as-section>
+          <Reveal>
           <section className="text-center p-8 theme-bg-secondary rounded-lg">
             <h2 className="text-2xl font-semibold theme-text-primary mb-4">Let's Connect</h2>
             <p className="text-lg theme-text-secondary mb-6">
